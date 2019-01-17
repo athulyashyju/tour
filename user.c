@@ -1,45 +1,20 @@
 #include<conio.h>
 #include<stdio.h>
 #include<stdlib.h>
-int n,w,v,q=1,g,i,z,r1,t,flightno,no,hotelno,roomno,ch7,ch3;
+int n,w,v,q=1,g,i,z,r1,t,flightno,no,hotelno,roomno,ch7,ch3,c,ch,d,r,ch2;
 int plane[10] = {0},ny, p=0,irstClass=1,economy=6,choice;
 char response[2],firstname[35], lastname[35],dept[10],arr[10],fname[10],lname[10],k[10],l[10],f[10],
 age[10],dptdate[20],tt[10],rtndate[10],hotel[10];
-void displayair()
+
+void airline()
 {
-  printf("**********************************\n");
-  printf("PACKAGE:\t");
-  if(ch==1)
-  {
-    printf("ASIA HOLIDAY PACKAGE\n");
-  }else
-  {
-    printf("MAURITIUS TOUR PACKAGE\n");
-  }
-  if(ch3==1)
-  {
-    printf("EUROPE TOUR PACKAGE\n");
-  }else
-  {
-    printf("MANALI TOUR PACKAGE\n");
-  }
-  if(choice==1)
-  {
-    printf("Flight Type: \tFirstClass\n");
-  }
-  else
-  {
-    printf("Flight Type: \tEconomy\n");
-  }
-  printf("\nDEPARTURE AIRPORT:\t%s\n",dept);
-printf("\nARRIVAL AIRPORT:\t%s\n",arr);
-printf("DEPARTURE DATE:\t%s\n",dptdate);
-if(tt=="2")
-{
-printf("RETURNING DATE:\t%s\n",rtndate);
-}
-printf("No of Passengers:\t%d\n",ny);
-printf("Selected Flight No:\t%d \n",flightno);
+printf("FlightNo \t From-To \t\t Date \t Time \t Fair\n");
+printf("1531 \t %s-%s \t %s \t 07:12-11:50 \t 14444\n",dept,arr,dptdate);
+printf("1235 \t %s-%s \t %s \t 22:24-01:00 \t 17000\n",dept,arr,dptdate);
+printf("21335 \t %s-%s \t %s \t 22:24-01:00 \t 12100\n",dept,arr,dptdate);
+printf("6236 \t %s-%s \t %s \t 07:12-11:30 \t 1114\n",dept,arr,dptdate);
+printf("92433 \t %s-%s \t %s \t 08:23-12:50 \t 21300\n",dept,arr,dptdate);
+printf("22276 \t %s-%s \t %s \t 16:12-21:30 \t 19644\n",dept,arr,dptdate);
 }
 void airbook()
 {
@@ -188,6 +163,43 @@ if(p>ny)
 }
 }
 
+void displayair()
+{
+  printf("**********************************\n");
+  printf("PACKAGE:\t");
+  if(ch==1)
+  {
+    printf("ASIA HOLIDAY PACKAGE\n");
+  }else
+  {
+    printf("MAURITIUS TOUR PACKAGE\n");
+  }
+  if(ch3==1)
+  {
+    printf("EUROPE TOUR PACKAGE\n");
+  }else
+  {
+    printf("MANALI TOUR PACKAGE\n");
+  }
+  if(choice==1)
+  {
+    printf("Flight Type: \tFirstClass\n");
+  }
+  else
+  {
+    printf("Flight Type: \tEconomy\n");
+  }
+  printf("\nDEPARTURE AIRPORT:\t%s\n",dept);
+printf("\nARRIVAL AIRPORT:\t%s\n",arr);
+printf("DEPARTURE DATE:\t%s\n",dptdate);
+if(tt=="2")
+{
+printf("RETURNING DATE:\t%s\n",rtndate);
+}
+printf("No of Passengers:\t%d\n",ny);
+printf("Selected Flight No:\t%d \n",flightno);
+}
+
 
 void foode()
 {
@@ -206,10 +218,7 @@ if(v==1)
 {
   printf("500 per kg\n");
 }
-else
-{
-  break;
-}
+
 }
 
 void airtickt()
@@ -227,21 +236,6 @@ void airtickt()
                 break;
     case  4 :  displayair();
         break;
-     default:
-             printf("Not a valid input at this stage\n");
-}
-}
-void cab()
-{
- printf("*******************************************\n");
-  printf("\tBook Cab-1\n");
-  printf("\tPrint Details-2\n");
-  switch(ch7)
-  {
-    case  1 :  cabbook();
-                break;
-    case  2 :  displaycab();
-                break;
      default:
              printf("Not a valid input at this stage\n");
 }
@@ -266,6 +260,7 @@ void displaycab()
       printf("Model:Harley Davidson\tPrice: 21322\n");
     }
     else
+    {
          printf("Model:Kawasaki\tPrice:12000\n");
     }
   }
@@ -334,66 +329,21 @@ switch(w)
         break;
 }
 }
-void hotelww()
+void cab()
 {
-  printf("*****************************************************\n");
-  printf("\tBook Room-1\n");
+ printf("*******************************************\n");
+  printf("\tBook Cab-1\n");
   printf("\tPrint Details-2\n");
   switch(ch7)
   {
-    case  1 :  bookhotel();
+    case  1 :  cabbook();
                 break;
-    case  2 :  displayhotel();
+    case  2 :  displaycab();
                 break;
      default:
              printf("Not a valid input at this stage\n");
 }
 }
-void bookhotel()
-{
-  printf("Available Hotel rooms near %s\n",arr);
-  printf("Hotel Name \t Place \t Room Fair\n");
-  printf("1.Taj \t\t %s \t 1098\n",arr);
-  printf("2.Zisx \t\t %s \t 2198\n",arr);
-  printf("3.Flog \t\t %s \t 1298\n",arr);
-  printf("5.Santorini \t %s \t 1098\n",arr);
-  printf("4.Dave \t\t%s \t 1598\n",arr);
-  printf("5.Vere \t \t%s \t 1498\n",arr);
-  printf("Select the Hotel No.:\n");
-  scanf("%d",&hotelno);
-  printf("*****************************************************\n");
-switch(hotelno)
-{
-  case  1 : printf("Rooms available for Taj Hotel\n");
-          highhotel();
-          printf("Select Room Type No:\n");
-        scanf("%d",&roomno);
-          break;
-  case  2 : printf("Rooms available for Zisx Hotel\n");
-          normalhotel();
-          printf("Select Room Type No:\n");
-        scanf("%d",&roomno);
-          break;
-  case  3 : printf("Rooms available for Flog Hotel\n");
-          highhotel();
-          printf("Select Room Type No:\n");
-        scanf("%d",&roomno);
-          break;
-  case  4 : printf("Rooms available for Santorini Hotel\n");
-          normalhotel();
-          printf("Select Room Type No:\n");
-        scanf("%d",&roomno);
-          break;
-
-  case  5 : printf("Rooms available for Vere Hotel\n");
-          normalhotel();
-          printf("Select Room Type No:\n");
-        scanf("%d",&roomno);
-          break;
-  }
-
-}
-
 
 void highhotel()
 {
@@ -410,17 +360,87 @@ printf("1.Single\n");
 printf("2.Double\n");
 printf("3,Triple\n");
 }
-void airline()
+void bookhotel()
 {
-printf("FlightNo \t From-To \t\t Date \t Time \t Fair\n");
-printf("1531 \t %s-%s \t %s \t 07:12-11:50 \t 14444\n",dept,arr,dptdate);
-printf("1235 \t %s-%s \t %s \t 22:24-01:00 \t 17000\n",dept,arr,dptdate);
-printf("21335 \t %s-%s \t %s \t 22:24-01:00 \t 12100\n",dept,arr,dptdate);
-printf("6236 \t %s-%s \t %s \t 07:12-11:30 \t 1114\n",dept,arr,dptdate);
-printf("92433 \t %s-%s \t %s \t 08:23-12:50 \t 21300\n",dept,arr,dptdate);
-printf("22276 \t %s-%s \t %s \t 16:12-21:30 \t 19644\n",dept,arr,dptdate);
+  printf("Available Hotel rooms near %s\n",arr);
+  printf("Select type:\n");
+  printf("1.Delux or luxury\n");
+  printf("2.First class or superior tourist \n");
+  printf("3.Standard budjet class or economy\n");
+  scanf("%d",&z);
+  switch(z)
+  {
+    case 1  :printf("*****************************************************\n");
+    printf("Delux or luxury\n");
+    printf("*****************************************************\n");
+     printf("Hotel Name \t Place \t Room Fair\n");
+  printf("1.Taj \t\t %s \t 1098\n",arr);
+  printf("2.Zisx \t\t %s \t 2198\n",arr);
+  printf("3.Flog \t\t %s \t 1298\n",arr);
+  printf("4.Santorini \t %s \t 1098\n",arr);
+  printf("Select the Hotel No.:\n");
+  scanf("%d",&hotelno);
+  printf("Rooms available\n");
+          highhotel();
+          printf("Select Room Type No:\n");
+        scanf("%d",&roomno);
+  printf("*****************************************************\n");
+  break;
+  case  2 :printf("*****************************************************\n");
+  printf("First class or superior tourist \n");
+  printf("*****************************************************\n");
+  printf("Hotel Name \t Place \t Room Fair\n");
+  printf("1.Bulgari Resort \t %s \t2500\n",arr);
+  printf("2.Aspen Chalets \t %s \t3500\n",arr);
+  printf("3.Raffles \t\t %s \t2500\n",arr);
+  printf("4.Palazzo Versace\t %s \t 3000\n",arr);
+  printf("Select the Hotel No.:\n");
+  scanf("%d",&hotelno);
+  printf("Rooms available\n");
+          highhotel();
+          printf("Select Room Type No:\n");
+        scanf("%d",&roomno);
+  printf("*****************************************************\n");
+  break;
+case  3 :printf("*****************************************************\n");
+printf("Standard budjet class or economy\n");
+printf("*****************************************************\n");
+printf("Hotel Name \t Place \t Room Fair\n");
+  printf("1.Atlantis \t\t %s \t1800\n",arr);
+  printf("2.Grand Hyatt\t %s \t1700\n",arr);
+  printf("3.Five palm \t %s \t 1500\n",arr);
+  printf("4.rosvenor\t\t %s \t1400\n",arr);
+  printf("5.Oberoi\t\t %s \t1200\n",arr);
+  printf("Select the Hotel No.:\n");
+  scanf("%d",&hotelno);
+  printf("Rooms available\n");
+          normalhotel();
+          printf("Select Room Type No:\n");
+        scanf("%d",&roomno);
+  printf("*****************************************************\n");
+  break;
+default:
+             printf("Not a valid input at this stage\n");
+  }
+
 }
-int c,ch,d,r,ch2;
+
+
+void hotelww()
+{
+  printf("*****************************************************\n");
+  printf("\tBook Room-1\n");
+  printf("\tPrint Details-2\n");
+  switch(ch7)
+  {
+    case  1 :  bookhotel();
+                break;
+    case  2 :  displayhotel();
+                break;
+     default:
+             printf("Not a valid input at this stage\n");
+}
+}
 
 void main()
 {
@@ -448,11 +468,7 @@ void main()
                 default:
                     printf("Not a valid input at this stage\n");
             }
-    
-
-
-
-
+   
 }
 
 printf("\nDo you want to continue? 1=Yes or 0=No");
