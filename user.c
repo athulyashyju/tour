@@ -5,16 +5,76 @@ int n,w,v,q=1,g,i,z,r1,t,flightno,no,hotelno,roomno,ch7,ch3,c,ch,d,r,ch2;
 int plane[10] = {0},ny, p=0,irstClass=1,economy=6,choice;
 char response[2],firstname[35], lastname[35],dept[10],arr[10],fname[10],lname[10],k[10],l[10],f[10],
 age[10],dptdate[20],tt[10],rtndate[10],hotel[10];
-
-void airline()
+void airtickt();
+void airbook();
+void take();
+void airline();
+void displayair();
+void lugg();
+void foode();
+void main();
+void cab();
+void cabbook();
+void displaycab();
+void displayhotel();
+void hotelww();
+void bookhotel();
+void normalhotel();
+void highhotel();
 {
-printf("FlightNo \t From-To \t\t Date \t Time \t Fair\n");
-printf("1531 \t %s-%s \t %s \t 07:12-11:50 \t 14444\n",dept,arr,dptdate);
-printf("1235 \t %s-%s \t %s \t 22:24-01:00 \t 17000\n",dept,arr,dptdate);
-printf("21335 \t %s-%s \t %s \t 22:24-01:00 \t 12100\n",dept,arr,dptdate);
-printf("6236 \t %s-%s \t %s \t 07:12-11:30 \t 1114\n",dept,arr,dptdate);
-printf("92433 \t %s-%s \t %s \t 08:23-12:50 \t 21300\n",dept,arr,dptdate);
-printf("22276 \t %s-%s \t %s \t 16:12-21:30 \t 19644\n",dept,arr,dptdate);
+ 
+    clrscr();
+    while(q>0)
+{
+  printf("************************************************************\n");
+  printf("\t \t MENU\n");
+    printf("\n\t\t\t\tAirticket Booking - 1\n\t\t\t\tCab Booking - 2\n\t\t\t\tHotel Booking Ticket - 3\n\t\t\t\tExit - 4\n\n\t\t\t\tEnter:");
+    scanf("%d",&ch2);
+            switch(ch2)
+            {
+                case 1:
+                    airtickt();
+                    break;
+                case 2:
+                    cab();
+                    break;
+                case 3:
+                    hotelww();              
+                    break;
+                case 4:
+                      exit(0);
+                default:
+                    printf("Not a valid input at this stage\n");
+            }
+   
+}
+
+printf("\nDo you want to continue? 1=Yes or 0=No");
+scanf("%d",&q);
+if(q==0)
+{
+  exit(0);
+}
+}
+}
+void airtickt()
+{
+  printf("*******************************************\n");
+  printf("\tBook Ticket -1\n");
+  printf("\tPrint Ticket Details-2\n");
+  switch(ch7)
+  {
+    case  1 :  airbook();
+                break;    
+    case  2 :   lugg();
+                break;
+    case  3 :   foode();
+                break;
+    case  4 :  displayair();
+        break;
+     default:
+             printf("Not a valid input at this stage\n");
+}
 }
 void airbook()
 {
@@ -43,21 +103,7 @@ void airbook()
         scanf("%d",&ch3);
         
   }
-        
-  
-printf("\nENTER THE DEPARTURE AIRPORT:");
-scanf("%s",dept);
-printf("\nENTER THE ARRIVAL AIRPORT:");
-scanf("%s",arr);
-printf("DEPARTURE DATE:\n");
-scanf("%s",dptdate);
-printf("Type '1' for ONE WAY \n '2' for ROUND TRIP:\n");
-scanf("%s",tt);
-if(tt=="2")
-{
-printf("RETURNING DATE:\n");
-scanf("%s",rtndate);
-}
+  take();
 printf("*****************************************************\n");
 printf("Which Flight do you prefer?\n");
 printf("1.AIRINDIA\n");
@@ -162,6 +208,33 @@ if(p>ny)
   printf("seat is full\n");
 }
 }
+void take()
+{
+printf("\nENTER THE DEPARTURE AIRPORT:");
+scanf("%s",dept);
+printf("\nENTER THE ARRIVAL AIRPORT:");
+scanf("%s",arr);
+printf("DEPARTURE DATE:\n");
+scanf("%s",dptdate);
+printf("Type '1' for ONE WAY \n '2' for ROUND TRIP:\n");
+scanf("%s",tt);
+if(tt=="2")
+{
+printf("RETURNING DATE:\n");
+scanf("%s",rtndate);
+}
+}
+void airline()
+{
+printf("FlightNo \t From-To \t\t Date \t Time \t Fair\n");
+printf("1531 \t %s-%s \t %s \t 07:12-11:50 \t 14444\n",dept,arr,dptdate);
+printf("1235 \t %s-%s \t %s \t 22:24-01:00 \t 17000\n",dept,arr,dptdate);
+printf("21335 \t %s-%s \t %s \t 22:24-01:00 \t 12100\n",dept,arr,dptdate);
+printf("6236 \t %s-%s \t %s \t 07:12-11:30 \t 1114\n",dept,arr,dptdate);
+printf("92433 \t %s-%s \t %s \t 08:23-12:50 \t 21300\n",dept,arr,dptdate);
+printf("22276 \t %s-%s \t %s \t 16:12-21:30 \t 19644\n",dept,arr,dptdate);
+}
+
 
 void displayair()
 {
@@ -221,25 +294,7 @@ if(v==1)
 
 }
 
-void airtickt()
-{
-  printf("*******************************************\n");
-  printf("\tBook Ticket -1\n");
-  printf("\tPrint Ticket Details-2\n");
-  switch(ch7)
-  {
-    case  1 :  airbook();
-                break;    
-    case  2 :   lugg();
-                break;
-    case  3 :   foode();
-                break;
-    case  4 :  displayair();
-        break;
-     default:
-             printf("Not a valid input at this stage\n");
-}
-}
+
 void displaycab()
 {
   if(w==1)
@@ -356,6 +411,7 @@ printf("6.King\n");
 }
 void normalhotel()
 {
+{
 printf("1.Single\n");
 printf("2.Double\n");
 printf("3,Triple\n");
@@ -442,40 +498,3 @@ void hotelww()
 }
 }
 
-void main()
-{
- 
-    clrscr();
-    while(q>0)
-{
-  printf("************************************************************\n");
-  printf("\t \t MENU\n");
-    printf("\n\t\t\t\tAirticket Booking - 1\n\t\t\t\tCab Booking - 2\n\t\t\t\tHotel Booking Ticket - 3\n\t\t\t\tExit - 4\n\n\t\t\t\tEnter:");
-    scanf("%d",&ch2);
-            switch(ch2)
-            {
-                case 1:
-                    airtickt();
-                    break;
-                case 2:
-                    cab();
-                    break;
-                case 3:
-                    hotelww();              
-                    break;
-                case 4:
-                      exit(0);
-                default:
-                    printf("Not a valid input at this stage\n");
-            }
-   
-}
-
-printf("\nDo you want to continue? 1=Yes or 0=No");
-scanf("%d",&q);
-if(q==0)
-{
-  exit(0);
-}
-}
-}
