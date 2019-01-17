@@ -20,7 +20,7 @@ void displayhotel();
 void hotelww();
 void bookhotel();
 void normalhotel();
-void highhotel();
+void main()
 {
  
     clrscr();
@@ -56,7 +56,7 @@ if(q==0)
   exit(0);
 }
 }
-}
+
 void airtickt()
 {
   printf("*******************************************\n");
@@ -206,6 +206,7 @@ else if(choice==2)
 if(p>ny) 
 {
   printf("seat is full\n");
+}
 }
 }
 void take()
@@ -410,12 +411,79 @@ printf("5.Queen\n");
 printf("6.King\n");
 }
 void normalhotel()
-{
+
 {
 printf("1.Single\n");
 printf("2.Double\n");
 printf("3,Triple\n");
 }
+void displayhotel()
+{
+  if(z==1)
+  {
+    printf("****************************************\n");
+    printf("Type:Delux or luxury\n");
+     printf("****************************************\n");
+      if(hotelno==1)
+      {
+        printf("Hotel:Taj \t 1098\n");
+      }
+      else if(hotelno==2)
+      {
+        printf("Hotel:Zisx \t 2198\n");
+      }
+      else if(hotelno==3)
+      {
+        printf("Hotel:Flog \t 1298\n");
+      }
+      else{
+        printf("Hotel:Santorini \t 1098\n");
+      }
+  }
+  else if(z==2)
+  {
+    printf("****************************************\n");
+    printf("Type:Delux or luxury\n");
+     printf("****************************************\n");
+      if(hotelno==1)
+      {
+        printf("Hotel:Bulgari Resort \t2500\n");
+      }
+      else if(hotelno==2)
+      {
+        printf("Hotel:Aspen Chalets \t 3500\n");
+      }
+      else if(hotelno==3)
+      {
+        printf("Hotel:Raffles \t2500\n");
+      }
+      else{
+        printf("Hotel:Palazzo Versace\t3000\n");
+      }
+  }
+  else if(z==2)
+  {
+    printf("****************************************\n");
+    printf("Type:Delux or luxury\n");
+     printf("****************************************\n");
+      if(hotelno==1)
+      {
+        printf("Hotel:Bulgari Resort \t2500\n");
+      }
+      else if(hotelno==2)
+      {
+        printf("Hotel:Aspen Chalets \t 3500\n");
+      }
+      else if(hotelno==3)
+      {
+        printf("Hotel:Raffles \t2500\n");
+      }
+      else{
+        printf("Hotel:Palazzo Versace\t3000\n");
+      }
+  }
+}
+
 void bookhotel()
 {
   printf("Available Hotel rooms near %s\n",arr);
@@ -497,4 +565,3 @@ void hotelww()
              printf("Not a valid input at this stage\n");
 }
 }
-
