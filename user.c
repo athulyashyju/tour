@@ -1,7 +1,7 @@
 #include<conio.h>
 #include<stdio.h>
 #include<stdlib.h>
-int n,w,v,q=1,g,i,z,r1,t,flightno,no,hotelno,roomno,ch7,ch3,c,ch,d,r,ch2;
+int n,w,v,q=1,g,i,z,r1,t,flightno,no,hotelno,roomno,ch7,ch3,ch5,ch8,c,ch,d,r,ch2;
 int plane[10] = {0},ny, p=0,irstClass=1,economy=6,choice;
 char response[2],firstname[35], lastname[35],dept[10],arr[10],fname[10],lname[10],k[10],l[10],f[10],
 age[10],dptdate[20],tt[10],rtndate[10],hotel[10];
@@ -27,8 +27,8 @@ void main()
     while(q>0)
 {
   printf("************************************************************\n");
-  printf("\t \t MENU\n");
-    printf("\n\t\t\t\tAirticket Booking - 1\n\t\t\t\tCab Booking - 2\n\t\t\t\tHotel Booking Ticket - 3\n\t\t\t\tExit - 4\n\n\t\t\t\tEnter:");
+  printf("MENU\n");
+    printf("\nAirticket Booking - 1\nCab Booking - 2\nHotel Booking Ticket - 3\nExit - 4\nEnter:");
     scanf("%d",&ch2);
             switch(ch2)
             {
@@ -48,20 +48,17 @@ void main()
             }
    
 }
-
-printf("\nDo you want to continue? 1=Yes or 0=No");
-scanf("%d",&q);
-if(q==0)
-{
-  exit(0);
-}
 }
 
 void airtickt()
 {
   printf("*******************************************\n");
   printf("\tBook Ticket -1\n");
-  printf("\tPrint Ticket Details-2\n");
+  printf("\t Luggage Details-2\n");
+  printf("\t Food Details-3\n");
+  printf("\t Print Details-4\n");
+ printf("Choose your option:");
+  scanf("%d",&ch7);
   switch(ch7)
   {
     case  1 :  airbook();
@@ -390,7 +387,8 @@ void cab()
  printf("*******************************************\n");
   printf("\tBook Cab-1\n");
   printf("\tPrint Details-2\n");
-  switch(ch7)
+  scanf("%d",&ch8);
+  switch(ch8)
   {
     case  1 :  cabbook();
                 break;
@@ -461,26 +459,35 @@ void displayhotel()
         printf("Hotel:Palazzo Versace\t3000\n");
       }
   }
-  else if(z==2)
+  else if(z==3)
   {
     printf("****************************************\n");
     printf("Type:Delux or luxury\n");
      printf("****************************************\n");
       if(hotelno==1)
       {
-        printf("Hotel:Bulgari Resort \t2500\n");
+        printf("Hotel:Atlantis \t1800\n");
       }
       else if(hotelno==2)
       {
-        printf("Hotel:Aspen Chalets \t 3500\n");
+        printf("Hotel:Grand Hyatt\t 1700\n");
       }
       else if(hotelno==3)
       {
-        printf("Hotel:Raffles \t2500\n");
+        printf("Hotel:Five palm \t1500\n");
       }
-      else{
-        printf("Hotel:Palazzo Versace\t3000\n");
+      else if(hotelno==4)
+      {
+        printf("Hotel:rosvenor\t1400\n");
       }
+      else
+      {
+        printf("Hotel:Oberoi\t1200");
+      }
+   }
+
+  else{
+    printf("Not a valid input at this stage\n");
   }
 }
 
@@ -555,7 +562,8 @@ void hotelww()
   printf("*****************************************************\n");
   printf("\tBook Room-1\n");
   printf("\tPrint Details-2\n");
-  switch(ch7)
+  scanf("%d",&ch5);
+  switch(ch5)
   {
     case  1 :  bookhotel();
                 break;
