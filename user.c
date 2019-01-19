@@ -1,7 +1,9 @@
 #include<conio.h>
 #include<stdio.h>
 #include<stdlib.h>
-int n,w,v,q=1,g,i,z,r1,t,flightno,no,hotelno,roomno,ch7,ch3,ch5,ch8,c,ch,d,r,ch2;
+#include<string.h>
+
+int n,w,v,q=1,g,i,z,r1,t,flightno,no,hotelno,roomno,ch7,ch3,ch5,ch8,c,ch,d,r,ch2,z=0;
 int plane[10] = {0},ny, p=0,irstClass=1,economy=6,choice;
 char response[2],firstname[35], lastname[35],dept[10],arr[10],fname[10],lname[10],k[10],l[10],f[10],
 age[10],dptdate[20],tt[10],rtndate[10],hotel[10];
@@ -20,10 +22,46 @@ void displayhotel();
 void hotelww();
 void bookhotel();
 void normalhotel();
+
+int i=0;
+struct web{
+    char name[30],pass[30];
+    } we[99];
+
+int m; 
+void login(void);
+void reg(void);
+
+    
 void main()
 {
- 
-    clrscr();
+	clrscr();
+	 printf("\n\n\n\t\t\tTOUR PLANNING");
+	 printf("\n\t\t\t Press ENTER to continue");
+    if(getchar()==13)
+    XY:
+    printf(" ");
+    printf("\n\n\n\t\t\t1. LOGIN\t\t2. REGISTER");
+    printf("\n\n\n\t\t\t\tENTER YOUR CHOICE: ");
+    scanf("%d",&m);
+    switch(m){
+	case 1:
+
+	    login();
+	    if(z==1) goto AB ;
+	    break;
+	case 2 :
+		    reg();
+	    break ;
+	default:
+	    printf("\n\n\t\t\t\tNO MATCH FOUND");
+            // printf("\n\n\t\t\tPress Enter to re-Enter the choice");
+            // if(getchar()==13)
+            //clrscr();
+            goto XY ;
+	       }
+   
+   AB:
     while(q>0)
 {
   printf("************************************************************\n");
@@ -72,8 +110,9 @@ void airtickt()
         break;
      default:
              printf("Not a valid input at this stage\n");
+    }
 }
-}
+
 void airbook()
 {
   printf("************************************************************\n");
@@ -595,10 +634,113 @@ void hotelww()
   switch(ch5)
   {
     case  1 :  bookhotel();
-                break;
+		break;
     case  2 :  displayhotel();
-                break;
+		break;
      default:
-             printf("Not a valid input at this stage\n");
+	     printf("Not a valid input at this stage\n");
 }
 }
+
+
+
+void reg(){
+    FILE *fp;
+    char ss,checker[30]; int qq2=0;
+    fp=fopen("Web_reg.txt","ab +");
+    printf("\n\n\t\t\t\tWELCOME TO REGISTER ZONE");
+    printf("\n\t\t\t\t^^^^^^^^^^^^^^^^^^^^^^^^");
+    for(i=0;i<100;i++){
+	printf("\n\n\t\t\t\t ENTER USERNAME: ");
+	scanf("%s",checker);
+	while(!feof(fp)){
+	    fread(&we[i],sizeof(we[i]),1,fp);
+	    if(strcmp(checker,we[i].name) ==0){
+		printf("\n\n\t\t\tUSERNAME ALREDY EXISTS");
+		//clrscr();
+		reg();
+		}
+	    else{
+		strcpy(we[i].name,checker);
+		break;
+		}
+	    }
+	printf("\n\n\t\t\t\t DESIRED PASSWORD: ");
+	scanf("%s",we[i].pass);
+	// while((c=getchar())!=13){
+	    // w[i].pass[z++]=c;
+	    // printf("%c",'*');
+	    // }
+	fwrite(&we[i],sizeof(we[i]),1,fp);
+	fclose(fp);
+	// printf("\n\n \tPress enter if you agree with Username and Password");
+	// if((c=getchar())==13){
+	    //clrscr();
+	    printf("\n\n\t\tYou are successfully registered");
+	    printf("\n\n\t\tTry login your account??\n\n\t\t " );
+	    printf("> PRESS 1 FOR YES\n\n\t\t > PRESS 2 FOR NO\n\n\t\t\t\t");
+	    scanf("%d",&m);
+	    switch(m){
+		case 1:
+		    //clrscr();
+		    login();
+		    break;
+		case 2 :
+		    //clrscr();
+		    printf("\n\n\n\t\t\t\tTHANK YOU FOR REGISTERING\n");
+		    exit(0);
+		    break;
+		}
+	    // }
+	break;
+	}
+    getchar();
+    }
+
+void login()
+{
+    FILE *fp;
+    char ss,name[30],pass[30]; int qq2=0;
+    int checku,checkp;
+    fp=fopen("Web_reg.txt","rb");
+    printf("\n\n\t\t\t\tWELCOME TO LOG IN ZONE");
+    printf("\n\t\t\t\t^^^^^^^^^^^^^^^^^^^^^^");
+    for(i=0;i<1000;i++){
+	printf("\n\n\t\t\t\t ENTER USERNAME: ");
+	scanf("%s",name);
+	printf("\n\n\t\t\t\t ENTER PASSWORD: ");
+	scanf("%s",pass);
+	// while((c=getchar())!=13){
+	    // pass[z++]=c;
+	    // printf("%c",'*') ;
+	    // }
+	// pass[z]='\0';
+	while(!feof(fp)){
+	    fread(&we[i],sizeof(we[i]),1,fp);
+	    checku=strcmp(name,we[i].name);
+	    checkp=strcmp(pass,we[i].pass);
+	    if(checku==0&&checkp==0){
+		//clrscr();
+		printf("\n\n\n\t\t\tYOU HAVE LOGGED IN SUCCESSFULLY!!");
+		printf("\n\n\n\t\t\t\tWELCOME, HAVE A NICE DAY");
+		qq2=1;
+		break;
+		}
+	    else if(checku==0&&checkp!=0){
+		printf("\n\n\n\t\t\tWRONG PASSWORD!! Not %s??",name);
+		printf("\n\n\t\t\t\t (Press 'Y' to re-login)");
+		if(getchar()=='y'||getchar()=='Y')
+		login();
+		}
+	    else if(checku!=0){
+		printf("\n\n\n\t\t\tYou are not a Registered User\n \t\t\tYou are being redirected to Register Zone");
+		// if(getchar()==13)
+		//clrscr();
+		reg();
+		}
+	    }
+	break;
+	}
+    getchar();
+    //return;
+    }
